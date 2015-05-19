@@ -1,4 +1,4 @@
-# Practice example sampled from learnpythonthehardway.org/book/ex35.html
+# Practice example sampled from learnpythonthehardway.org/book/ex39.html
 import hashmap 
 
 states = hashmap.new() 
