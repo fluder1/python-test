@@ -1,4 +1,4 @@
-# Practice from learnpythonthehardway.org/book/ex45.htmlimport Rooms.py
+# Practice from learnpythonthehardway.org/book/ex45.html
 import Rooms
 
 print "You see two doors"
