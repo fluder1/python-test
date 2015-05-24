@@ -16,9 +16,7 @@ def peek(word_list):
 	
 def match(word_list, expecting):
 	if word_list:
-		print word_list
-		word = word_list
-		print word
+		word = word_list.pop(0)
 
 		if word[0] == expecting:
 			return word
@@ -57,7 +55,7 @@ def parse_subject(word_list):
 	if next_word == 'noun':
 		return match(word_list, 'noun')
 	elif next_word == 'verb':
-		return match('noun', 'player')
+		return ('noun', 'player')
 	else:
 		raise ParserError("Expected a verb next")
 
