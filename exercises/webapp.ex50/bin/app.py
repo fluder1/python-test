@@ -2,7 +2,8 @@ import web
 
 urls = (
     '/', 'Index',
-    '/foo', 'Foo'
+    '/foo', 'Foo',
+	'/hello', 'Index'
 )
 
 app = web.application(urls, globals())
@@ -10,7 +11,9 @@ render = web.template.render('templates/')
 
 class Index(object):
     def GET(self):
-        greeting = "We demand Jenny McNeal"
+        #greeting = "We demand Jenny McNeal"
+	form = web.input(name = "Nobody", greet = "Howdy")
+	greeting = "%s, %s" % (form.greet, form.name)
         return render.index(greeting = greeting)
 
 
