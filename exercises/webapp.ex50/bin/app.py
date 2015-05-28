@@ -11,10 +11,11 @@ render = web.template.render('templates/')
 
 class Index(object):
     def GET(self):
-        #greeting = "We demand Jenny McNeal"
-	form = web.input(name = "Nobody", greet = "Howdy")
-	greeting = "%s, %s" % (form.greet, form.name)
-        return render.index(greeting = greeting)
+		return render.hello_form()
+    def POST(self):  
+		form = web.input(name = "Nobody", greet = "Howdy")
+		greeting = "%s, %s" % (form.greet, form.name)
+        	return render.index(greeting = greeting)
 
 
 class Foo(object):
