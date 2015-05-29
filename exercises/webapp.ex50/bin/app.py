@@ -1,13 +1,11 @@
 import web
 
 urls = (
-    '/', 'Index',
-    '/foo', 'Foo',
-	'/hello', 'Index'
+    '/hello', 'Index'
 )
 
 app = web.application(urls, globals())
-render = web.template.render('templates/')
+render = web.template.render('templates/', base="layout")
 
 class Index(object):
     def GET(self):
@@ -16,12 +14,6 @@ class Index(object):
 		form = web.input(name = "Nobody", greet = "Howdy")
 		greeting = "%s, %s" % (form.greet, form.name)
         	return render.index(greeting = greeting)
-
-
-class Foo(object):
-    def GET(self):
-        name = "Jenny McNeal"
-        return render.foo(foobar = name)
 
 if __name__ == "__main__":
     app.run()
