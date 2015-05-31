@@ -28,7 +28,7 @@ the_bridge = Room("The Bridge",
 The container cracks open and gas starts leaking from it. You burst towards the Bridge with the doomsday device.
 """)
 
-escape_pod("Escape Pod",
+escape_pod = Room("Escape Pod",
 """
 You inch slowly towards the door, open it and place the doomsday device at your feet. You rush through the ship heading towards the chamber with the escape pods. You see five pods, all with slight damage to them, which do you choose?
 """)
@@ -52,7 +52,22 @@ escape_pod.add_paths({
 generic_death = Room("death", "He's dead Jim")
 
 the_bridge.add_paths({
+	'throw the bomb': generic_death,
+	'slowly place the bomb': escape_pod
+})
 
+laser_weapon_armory.add_paths({
+	'0123': the_bridge,
+	'*': generic_death
+})
+
+central_corridor.add_paths({
+	'shoot!': generic_death,
+	'dodge!': generic_death,
+	'tell a joke': laser_weapon_armory
+})
+
+START = central_corridor
 
 
 
