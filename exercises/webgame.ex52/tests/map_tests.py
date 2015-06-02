@@ -1,6 +1,5 @@
-# Practice based from example 47 from learnpythonthehardway.org/book/ex47.html
 from nose.tools import *
-from omicronweb.map import Room
+from omicronweb.map import *
 
 def test_room():
 	gold = Room("GoldRoom", "This room has gold in it you can grab it. There's a door to the north.")
@@ -28,3 +27,22 @@ def test_map():
 	assert_equal(start.go('west'), west)
 	assert_equal(start.go('west').go('east'), start)
 	assert_equal(start.go('down').go('up'),start)
+
+def test_omicron_game_map():
+	assert_equal(START.go('shoot!'), generic_death)
+	assert_equal(START.go('dodge!'), generic_death)
+
+	room = START.go('tell a joke')
+	assert_equal(room, laser_weapon_armory)
+
+	assert_equal(laser_weapon_armory.go('0123'), the_bridge)
+	assert_equal(laser_weapon_armory.go('*'), generic_death)
+#	assert_equal(laser_weapon_armory.go('open'), generic_death)
+
+	assert_equal(the_bridge.go('throw the bomb'), generic_death)
+	assert_equal(the_bridge.go('slowly place the bomb'), escape_pod)
+
+	assert_equal(escape_pod.go('2'), the_end_winner)
+#	assert_equal(escape_pod.go('anything else'), the_end_loser)
+
+
