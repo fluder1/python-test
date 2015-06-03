@@ -15,7 +15,13 @@ class Room(object):
 
 central_corridor = Room("Central Corridor",
 """
-The Omicronians of Omicron Persei 8 have invaded your ship. You are the last remaining member and you need to retrieve the doomsday device from the Weapons Armory, attached it to the bridge and blow up the ship after getting on an escape pod.
+The Omicronians of Omicron Persei 8 have invaded your ship. You are the 
+last remaining member and you need to retrieve the doomsday device from 
+the Weapons Armory, attached it to the bridge and blow up the ship after 
+getting on an escape pod.
+What do you do?
+1) Run to the Armory
+2) Cry
 """)
 
 laser_weapon_armory = Room("Laser Weapon Armory",
@@ -45,26 +51,22 @@ You jump into a random pod and hit eject. However the pod doesn't move. A famila
 )
 
 escape_pod.add_paths({
-	'2': the_end_winner,
+	'1': the_end_winner,
 	'*': the_end_loser
 })
 
-generic_death = Room("death", "He's dead Jim")
+generic_death = Room("death", "He's dead, Jim")
 
 the_bridge.add_paths({
-	'throw the bomb': generic_death,
-	'slowly place the bomb': escape_pod
+	'1': escape_pod
 })
 
 laser_weapon_armory.add_paths({
-	'0123': the_bridge,
-	'*': generic_death
+	'1': the_bridge,
 })
 
 central_corridor.add_paths({
-	'shoot!': generic_death,
-	'dodge!': generic_death,
-	'tell a joke': laser_weapon_armory
+	'1': laser_weapon_armory
 })
 
 START = central_corridor

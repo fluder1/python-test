@@ -4,7 +4,6 @@ from omicronweb import map
 urls = (
 	'/game', 'GameEngine',
 	'/', 'Index',
-    #    '/hello', 'Index'
 )
 
 app = web.application(urls, globals())
@@ -36,7 +35,7 @@ class GameEngine(object):
 		form = web.input(action=None)
 		
 		if session.room and form.action:
-			session.room = session.room.go(action=form.action)
+			session.room = session.room.go(form.action)
 
 		web.seeother('/game')		
 
