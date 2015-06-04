@@ -56,6 +56,9 @@ escape_pod.add_paths({
 })
 
 generic_death = Room("death", "He's dead, Jim")
+bridge_death = Room("death", "")
+armory_death = Room("death", "")
+corridor_death = Room("death", "You lay down and start to weep openly. Eventually you starve.")
 
 the_bridge.add_paths({
 	'1': escape_pod
